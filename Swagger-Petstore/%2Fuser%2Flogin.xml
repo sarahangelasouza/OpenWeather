@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/user/login" path="/user/login" id="307666e7-b1ab-46bc-b1ed-7af9a5965848" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="307666e7-b1ab-46bc-b1ed-7af9a5965848fileName">%2Fuser%2Flogin</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="loginUser" id="fc131a80-f9f3-4175-992e-20133bb9639e" method="GET">
+    <con:description>Logs user into the system</con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>username</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>The user name for login</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>password</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>The password for login in clear text</con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent>&lt;string>string&lt;/string></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent>"string"</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="3315f78f-17d0-4107-8812-95a0f17dbf78" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://petstore.swagger.io</con:endpoint>
+      <con:credentials/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>
