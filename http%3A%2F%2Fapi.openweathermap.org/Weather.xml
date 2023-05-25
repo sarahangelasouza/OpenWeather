@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:resource name="Weather" path="/data/2.5/weather" id="3253c713-bc15-4775-9d9f-9b4f153d7e17" xmlns:con="http://eviware.com/soapui/config">
-  <con:settings>
+<con:resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config" name="Weather" path="/data/2.5/weather" id="3253c713-bc15-4775-9d9f-9b4f153d7e17">
+  <con:settings id="7bc56008-8e7f-47b0-8ef1-e00e030955fc">
     <con:setting id="3253c713-bc15-4775-9d9f-9b4f153d7e17fileName">Weather</con:setting>
   </con:settings>
   <con:parameters/>
@@ -12,16 +12,16 @@
         <con:value>boston</con:value>
         <con:style>QUERY</con:style>
         <con:default>boston</con:default>
-        <con:path xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-        <con:description xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <con:path xsi:nil="true"/>
+        <con:description xsi:nil="true"/>
       </con:parameter>
       <con:parameter required="true">
         <con:name>appid</con:name>
         <con:value>85c705dd76051cb3d8e5540b300279d4</con:value>
         <con:style>QUERY</con:style>
         <con:default>85c705dd76051cb3d8e5540b300279d4</con:default>
-        <con:path xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-        <con:description xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <con:path xsi:nil="true"/>
+        <con:description xsi:nil="true"/>
       </con:parameter>
       <con:parameter required="true">
         <con:name>units</con:name>
@@ -49,7 +49,7 @@
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:parameters>
-        <con:entry key="q" value="boston"/>
+        <con:entry key="q" value="Boston"/>
         <con:entry key="appid" value="85c705dd76051cb3d8e5540b300279d4"/>
         <con:entry key="units" value="metric"/>
       </con:parameters>
