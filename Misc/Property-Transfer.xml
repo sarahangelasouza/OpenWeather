@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="11b9ef60-3e77-4679-ba03-4229a8b8047a" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Property Transfer" searchProperties="true" timeout="0">
+  <con:settings id="8f1a1d0f-5518-4b1b-9738-5b472b1a5fb0">
+    <con:setting id="11b9ef60-3e77-4679-ba03-4229a8b8047afileName">Property-Transfer</con:setting>
+  </con:settings>
+  <con:testStep type="datagen" name="Location Generator" id="4f84d4af-293f-455e-ae13-80918451a7b2">
+    <con:settings/>
+    <con:config xsi:type="con:DataGeneratorStep">
+      <con:property type="List">
+        <con:configuration>
+          <value>Tokyo</value>
+          <value>Delhi</value>
+          <value>Shanghai</value>
+          <value>Beijing</value>
+          <value>Mumbai</value>
+          <value>Istanbul</value>
+          <value>Lahore</value>
+          <value>Bangalore</value>
+          <value>Tianjin</value>
+          <value>Moscow</value>
+          <value>Jakarta</value>
+          <value>London</value>
+          <value>Lima</value>
+          <value>Bangkok</value>
+          <value>Chennai</value>
+          <value>New York City</value>
+          <value>Chengdu</value>
+          <value>Nagoya</value>
+          <value>Shenzhen</value>
+          <value>São Paulo</value>
+          <value>Kolkata</value>
+          <value>Shijiazhuang</value>
+          <value>Wuhan</value>
+          <value>Lahore</value>
+          <value>Cairo</value>
+          <value>Bogotá</value>
+          <value>Chongqing</value>
+          <value>Hyderabad</value>
+          <value>Lima</value>
+          <value>Shenzhen</value>
+          <value>Wuhan</value>
+          <value>Bengaluru</value>
+          <value>Nanjing</value>
+          <value>Hong Kong</value>
+          <value>Ho Chi Minh City</value>
+          <value>Ahmedabad</value>
+          <value>Baghdad</value>
+          <value>Changsha</value>
+          <value>Kuala Lumpur</value>
+          <value>Bogotá</value>
+          <value>Alexandria</value>
+          <value>Shijiazhuang</value>
+          <value>Chicago</value>
+          <value>Guangzhou</value>
+          <value>Lahore</value>
+          <value>Bangkok</value>
+          <value>Chittagong</value>
+          <value>Shenyang</value>
+          <value>Santiago</value>
+          <value>Riyadh</value>
+          <value>Changzhou</value>
+          <value>Baghdad</value>
+          <value>Shenzhen</value>
+          <value>Wuhan</value>
+          <value>Ho Chi Minh City</value>
+          <value>Suzhou</value>
+          <value>Nanjing</value>
+          <value>Hong Kong</value>
+          <value>Medellín</value>
+          <value>Hangzhou</value>
+          <value>Changchun</value>
+          <value>Cairo</value>
+          <value>Bangalore</value>
+          <value>Istanbul</value>
+          <value>Tehran</value>
+          <value>Baghdad</value>
+          <value>Bengaluru</value>
+          <value>Wuhan</value>
+          <value>Lahore</value>
+          <value>Chennai</value>
+          <value>Shenzhen</value>
+          <value>Ahmedabad</value>
+          <value>Bogotá</value>
+          <value>Bangkok</value>
+          <value>Shijiazhuang</value>
+          <value>Delhi</value>
+          <value>Jakarta</value>
+          <value>Istanbul</value>
+          <value>Moscow</value>
+          <value>Kolkata</value>
+          <value>Shanghai</value>
+          <value>Mumbai</value>
+          <value>Beijing</value>
+          <value>Dhaka</value>
+          <value>Karachi</value>
+          <value>Tokyo</value>
+          <value>Istanbul</value>
+          <value>Moscow</value>
+          <value>Mumbai</value>
+          <value>Beijing</value>
+          <value>Shanghai</value>
+          <value>Tokyo</value>
+          <value>Lahore</value>
+          <value>Delhi</value>
+          <value>Cairo</value>
+          <value>Mumbai</value>
+          <random>true</random>
+        </con:configuration>
+        <con:name>Top100Cities</con:name>
+        <con:mode>STEP</con:mode>
+        <con:shared>false</con:shared>
+      </con:property>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Set Location" id="f5a35153-508e-43f7-b944-1a14ef149108">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>Set City</con:name>
+        <con:sourceType>Top100Cities</con:sourceType>
+        <con:sourceStep>Location Generator</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>TC_city</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:targetPath/>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Get Weather by location" id="90833aa1-9430-4dda-95ae-887e71c14233">
+    <con:settings/>
+    <con:config service="http://api.openweathermap.org" resourcePath="/data/2.5/weather" methodName="GET Weather by location" xsi:type="con:RestRequestStep">
+      <con:restRequest name="Get Weather by location" id="b478602c-2d3d-460d-8c4a-1a1d974eaa9c" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://api.openweathermap.org</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://api.openweathermap.org/data/2.5/weather</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="ccf652b2-0ebf-4280-a167-693e9a28eff2" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="465b46b6-4556-43ba-9919-ddcbc7d7c88b" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="q" value="${#TestCase#TC_city}"/>
+          <con:entry key="appid" value="${#Project#API_password}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>q</con:entry>
+          <con:entry>appid</con:entry>
+          <con:entry>units</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="a7f860c7-1260-4fb1-a74c-bf58c3f835c1">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="e2f56d49-1fee-4eca-8ff9-d44226066985">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="2537a85e-1dd5-4588-b83e-5193ed8fdc19">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Set Coords" id="676669af-2b1a-4ff9-bea1-dc7cbeb80c31">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>Set Lat</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>Get Weather by location</con:sourceStep>
+        <con:sourcePath>$['coord']['lat']</con:sourcePath>
+        <con:targetType>TC_lat</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>Set Lon</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>Get Weather by location</con:sourceStep>
+        <con:sourcePath>$['coord']['lon']</con:sourcePath>
+        <con:targetType>TC_lon</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Get Weather by Coords" id="f466e010-8d4e-437f-a89f-5846900712ae">
+    <con:settings/>
+    <con:config service="http://api.openweathermap.org" resourcePath="/data/2.5/weather" methodName="GET Weather by coords" xsi:type="con:RestRequestStep">
+      <con:restRequest name="Get Weather by Coords" id="9c02ad4b-b06f-448a-a906-c2c43e5c9f8f" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://api.openweathermap.org</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://api.openweathermap.org/data/2.5/weather</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="2e87a664-8c38-4fb2-90ec-a3e8db034c43" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="8d421963-3479-4ff6-a46b-553600043613" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="c6639a53-9409-44ba-89b4-d1f806799877" name="Match content of [name]">
+          <con:configuration>
+            <path>$['name']</path>
+            <content>${Get Weather by location#Response#$['name']}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="appid" value="85c705dd76051cb3d8e5540b300279d4"/>
+          <con:entry key="lon" value="${#TestCase#TC_lon}"/>
+          <con:entry key="lat" value="${#TestCase#TC_lat}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>lat</con:entry>
+          <con:entry>lon</con:entry>
+          <con:entry>appid</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>TC_lat</con:name>
+      <con:value>33.3406</con:value>
+    </con:property>
+    <con:property>
+      <con:name>TC_lon</con:name>
+      <con:value>44.4009</con:value>
+    </con:property>
+    <con:property>
+      <con:name>TC_city</con:name>
+      <con:value>Baghdad</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+</con:testCase>

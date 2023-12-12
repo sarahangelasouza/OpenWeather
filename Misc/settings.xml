@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="79a45127-f78c-4e1f-9e47-34d0a3fac1fa" name="Misc">
+  <con:settings id="bc59ec9e-65bb-4716-9356-5354a5732605">
+    <con:setting id="79a45127-f78c-4e1f-9e47-34d0a3fac1fafileName">Misc</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

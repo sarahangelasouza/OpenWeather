@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="6b540450-6463-4f48-b6bf-8e93aabe730a" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Example Dependencies" searchProperties="true" timeout="0">
+  <con:settings id="8f1a1d0f-5518-4b1b-9738-5b472b1a5fb0">
+    <con:setting id="6b540450-6463-4f48-b6bf-8e93aabe730afileName">Example-Dependencies</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="Get Weather by location" id="f2425ad2-5d69-40e9-b21f-4ed1aa2bdcef">
+    <con:settings/>
+    <con:config service="http://api.openweathermap.org" resourcePath="/data/2.5/weather" methodName="GET Weather by location" xsi:type="con:RestRequestStep">
+      <con:restRequest name="Get Weather by location" id="b478602c-2d3d-460d-8c4a-1a1d974eaa9c" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://api.openweathermap.org</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://api.openweathermap.org/data/2.5/weather</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="ccf652b2-0ebf-4280-a167-693e9a28eff2" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="465b46b6-4556-43ba-9919-ddcbc7d7c88b" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="q" value="Boston"/>
+          <con:entry key="appid" value="${#Project#API_password}"/>
+          <con:entry key="units" value=""/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>q</con:entry>
+          <con:entry>appid</con:entry>
+          <con:entry>units</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="a7f860c7-1260-4fb1-a74c-bf58c3f835c1">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="e2f56d49-1fee-4eca-8ff9-d44226066985">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="2537a85e-1dd5-4588-b83e-5193ed8fdc19">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Get Weather by Coords" id="b2b420a4-e8b4-494b-b44b-1a73a1d2a1eb">
+    <con:settings/>
+    <con:config service="http://api.openweathermap.org" resourcePath="/data/2.5/weather" methodName="GET Weather by coords" xsi:type="con:RestRequestStep">
+      <con:restRequest name="Get Weather by Coords" id="9c02ad4b-b06f-448a-a906-c2c43e5c9f8f" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://api.openweathermap.org</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://api.openweathermap.org/data/2.5/weather</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="2e87a664-8c38-4fb2-90ec-a3e8db034c43" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="8d421963-3479-4ff6-a46b-553600043613" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="appid" value="85c705dd76051cb3d8e5540b300279d4"/>
+          <con:entry key="lon" value="${Get Weather by location#Response#$['coord']['lon']}"/>
+          <con:entry key="lat" value="${Get Weather by location#Response#$['coord']['lat']}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>lat</con:entry>
+          <con:entry>lon</con:entry>
+          <con:entry>appid</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

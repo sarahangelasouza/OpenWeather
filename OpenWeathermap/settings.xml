@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testSuite xmlns:con="http://eviware.com/soapui/config" id="7750615f-917d-4aa1-a53a-39008d5a03ee" name="OpenWeathermap">
-  <con:settings id="1916cf74-145e-4de9-8ba9-e69cb89d7679">
+<con:testSuite xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="7750615f-917d-4aa1-a53a-39008d5a03ee" name="OpenWeathermap">
+  <con:settings id="8ee9c1e9-62bb-499b-a186-2da2d49a4d47">
     <con:setting id="7750615f-917d-4aa1-a53a-39008d5a03eefileName">OpenWeathermap</con:setting>
   </con:settings>
   <con:runType>SEQUENTIAL</con:runType>
-  <con:properties/>
+  <con:properties>
+    <con:property>
+      <con:name>grid_value</con:name>
+      <con:value>cat</con:value>
+    </con:property>
+  </con:properties>
   <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="a7f860c7-1260-4fb1-a74c-bf58c3f835c1">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="e2f56d49-1fee-4eca-8ff9-d44226066985">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="2537a85e-1dd5-4588-b83e-5193ed8fdc19">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
 </con:testSuite>

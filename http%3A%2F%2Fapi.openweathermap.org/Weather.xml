@@ -4,26 +4,22 @@
     <con:setting id="3253c713-bc15-4775-9d9f-9b4f153d7e17fileName">Weather</con:setting>
   </con:settings>
   <con:parameters/>
-  <con:method name="Weather" id="31a22708-ab27-4253-88e7-2dff89f05972" method="GET">
+  <con:method name="GET Weather by location" id="31a22708-ab27-4253-88e7-2dff89f05972" method="GET">
     <con:settings/>
     <con:parameters>
       <con:parameter required="true">
         <con:name>q</con:name>
-        <con:value>boston</con:value>
+        <con:value/>
         <con:style>QUERY</con:style>
-        <con:default>boston</con:default>
-        <con:path xsi:nil="true"/>
-        <con:description xsi:nil="true"/>
+        <con:default/>
       </con:parameter>
       <con:parameter required="true">
         <con:name>appid</con:name>
-        <con:value>85c705dd76051cb3d8e5540b300279d4</con:value>
+        <con:value/>
         <con:style>QUERY</con:style>
-        <con:default>85c705dd76051cb3d8e5540b300279d4</con:default>
-        <con:path xsi:nil="true"/>
-        <con:description xsi:nil="true"/>
+        <con:default/>
       </con:parameter>
-      <con:parameter required="true">
+      <con:parameter required="false">
         <con:name>units</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
@@ -35,6 +31,42 @@
       <con:status>200</con:status>
       <con:params/>
       <con:element xmlns:weat="http://api.openweathermap.org/data/2.5/weather">weat:Response</con:element>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType xsi:nil="true"/>
+      <con:status>0</con:status>
+      <con:params/>
+      <con:element>data</con:element>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json;charset=utf-8</con:mediaType>
+      <con:status>200 202</con:status>
+      <con:params/>
+      <con:element xmlns:weat="http://api.openweathermap.org/data/2.5/weather">weat:Response</con:element>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json;charset=utf-8</con:mediaType>
+      <con:status>404 400 401</con:status>
+      <con:params/>
+      <con:element xmlns:weat="http://api.openweathermap.org/data/2.5/weather">weat:Fault</con:element>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json; charset=utf-8</con:mediaType>
+      <con:status>404 400 401</con:status>
+      <con:params/>
+      <con:element xmlns:weat="http://api.openweathermap.org/data/2.5/weather">weat:Fault</con:element>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType xsi:nil="true"/>
+      <con:status>500</con:status>
+      <con:params/>
+      <con:element>data</con:element>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:element xmlns:weat="http://api.openweathermap.org/data/2.5/weather">weat:Fault</con:element>
     </con:representation>
     <con:request name="Request 1" id="b478602c-2d3d-460d-8c4a-1a1d974eaa9c" mediaType="application/json">
       <con:settings>
@@ -50,14 +82,108 @@
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:parameters>
         <con:entry key="q" value="Boston"/>
-        <con:entry key="appid" value="85c705dd76051cb3d8e5540b300279d4"/>
-        <con:entry key="units" value="metric"/>
+        <con:entry key="appid" value="${#Project#API_password}"/>
+        <con:entry key="units" value=""/>
       </con:parameters>
       <con:parameterOrder>
         <con:entry>q</con:entry>
         <con:entry>appid</con:entry>
         <con:entry>units</con:entry>
       </con:parameterOrder>
+      <con:environmentSpec>
+        <con:entry environmentId="a7f860c7-1260-4fb1-a74c-bf58c3f835c1">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="e2f56d49-1fee-4eca-8ff9-d44226066985">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="2537a85e-1dd5-4588-b83e-5193ed8fdc19">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="a7f860c7-1260-4fb1-a74c-bf58c3f835c1">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="e2f56d49-1fee-4eca-8ff9-d44226066985">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="2537a85e-1dd5-4588-b83e-5193ed8fdc19">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:method>
+  <con:method name="GET Weather by coords" id="7c606906-ba3f-4e76-aab4-d4953d54e7f5" method="GET">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>lat</con:name>
+        <con:value>0</con:value>
+        <con:style>QUERY</con:style>
+        <con:default>0</con:default>
+        <con:path xsi:nil="true"/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>lon</con:name>
+        <con:value>0</con:value>
+        <con:style>QUERY</con:style>
+        <con:default>0</con:default>
+        <con:path xsi:nil="true"/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>appid</con:name>
+        <con:value>85c705dd76051cb3d8e5540b300279d4</con:value>
+        <con:style>QUERY</con:style>
+        <con:default>85c705dd76051cb3d8e5540b300279d4</con:default>
+        <con:path xsi:nil="true"/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json; charset=utf-8</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:weat="http://api.openweathermap.org/data/2.5/weather">weat:Response</con:element>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json; charset=utf-8</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:element xmlns:weat="http://api.openweathermap.org/data/2.5/weather">weat:Fault</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="9c02ad4b-b06f-448a-a906-c2c43e5c9f8f" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://api.openweathermap.org</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="appid" value="85c705dd76051cb3d8e5540b300279d4"/>
+        <con:entry key="lon" value="0"/>
+        <con:entry key="lat" value="0"/>
+      </con:parameters>
+      <con:parameterOrder>
+        <con:entry>lat</con:entry>
+        <con:entry>lon</con:entry>
+        <con:entry>appid</con:entry>
+      </con:parameterOrder>
     </con:request>
   </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="a7f860c7-1260-4fb1-a74c-bf58c3f835c1">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="e2f56d49-1fee-4eca-8ff9-d44226066985">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="2537a85e-1dd5-4588-b83e-5193ed8fdc19">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
 </con:resource>

@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config" id="dc0f8fea-e393-48b4-b8e4-fed3afc372c9" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="International Cities Data Test" searchProperties="true" timeout="0">
+<con:testCase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config" id="ccb5ca68-bfdb-453f-bd15-726887035f8e" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="International Cities w/Sun Data Test - ENV 1" searchProperties="true" timeout="0">
   <con:settings id="b8de97ab-2de1-4a1d-86a0-49919ed05ffc">
-    <con:setting id="dc0f8fea-e393-48b4-b8e4-fed3afc372c9fileName">International-Cities-Data-Test</con:setting>
     <con:setting id="IncludeOverview">true</con:setting>
     <con:setting id="IncludeResults">true</con:setting>
     <con:setting id="FlowLayout">false</con:setting>
     <con:setting id="ErrorDetails">true</con:setting>
     <con:setting id="IncludeCoverage">true</con:setting>
+    <con:setting id="ccb5ca68-bfdb-453f-bd15-726887035f8efileName">International-Cities-w%2FSun-Data-Test---ENV-1</con:setting>
   </con:settings>
-  <con:testStep type="datasource" name="Data Source" id="7df171e2-dace-493d-8e44-a4ea9ae199bb">
+  <con:testStep type="datasource" name="Data Source" id="edf0676a-3587-4ef1-916c-7456ea0f4d74">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep">
-      <con:dataSource type="Data Generator">
+      <con:dataSource type="Excel">
         <con:configuration>
-          <generatedDataCount>10</generatedDataCount>
-          <generatorsTotalNumber>1</generatorsTotalNumber>
-          <lastSelectedProperty>0</lastSelectedProperty>
-          <GeneratorType0>CITY</GeneratorType0>
-          <PropertyName0>City</PropertyName0>
-          <repetitionCountCity>0</repetitionCountCity>
-          <repeatValuesCity>false</repeatValuesCity>
-          <escapeSpaceSequence/>
+          <file>C:/Users/sarah.souza/Documents/ReadyAPI Project Files/Excel/InternationalCities.xlsx</file>
+          <worksheet/>
+          <cell>A1</cell>
+          <ignoreEmpty>false</ignoreEmpty>
+          <evaluateFormulas>false</evaluateFormulas>
         </con:configuration>
       </con:dataSource>
       <con:shared>true</con:shared>
       <con:restartShared>true</con:restartShared>
       <con:property>City</con:property>
+      <con:property>Country</con:property>
       <con:startRow>1</con:startRow>
       <con:endRow/>
       <con:recordsPerIteration>1</con:recordsPerIteration>
@@ -37,10 +35,10 @@
       <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Request 1" id="4817320d-4b54-4ab9-909b-3612a2a015a6">
+  <con:testStep type="restrequest" name="GetWeatherInfo" id="95c43841-2364-42d5-984f-2211fa9b60ba">
     <con:settings/>
     <con:config service="http://api.openweathermap.org" resourcePath="/data/2.5/weather" methodName="GET Weather by location" xsi:type="con:RestRequestStep">
-      <con:restRequest name="Request 1" id="b478602c-2d3d-460d-8c4a-1a1d974eaa9c" mediaType="application/json">
+      <con:restRequest name="GetWeatherInfo" id="b478602c-2d3d-460d-8c4a-1a1d974eaa9c" mediaType="application/json">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
@@ -50,7 +48,7 @@
         <con:assertion type="Valid HTTP Status Codes" id="cda76449-6dcb-4958-bf4b-adadba13103d" name="Valid HTTP Status Codes">
           <con:settings/>
           <con:configuration>
-            <codes>200, 202</codes>
+            <codes>200</codes>
           </con:configuration>
         </con:assertion>
         <con:assertion type="Response SLA Assertion" id="db27d62c-a88c-494b-b953-dee73d387784" name="Response SLA">
@@ -73,8 +71,9 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="q" value="${Data Source#City}"/>
+          <con:entry key="q" value="boston"/>
           <con:entry key="appid" value="85c705dd76051cb3d8e5540b300279d4"/>
+          <con:entry key="units" value=""/>
         </con:parameters>
         <con:parameterOrder>
           <con:entry>q</con:entry>
@@ -95,7 +94,57 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasourceloop" name="Data Source Loop" id="262352e7-46a6-439b-8f50-a810ccc5d89d">
+  <con:testStep type="restrequest" name="GetSunInfo" id="a6ff1d06-d547-48be-b074-6f6aa69bc07d">
+    <con:settings/>
+    <con:config service="https://api.sunrisesunset.io" resourcePath="/json" methodName="Json" xsi:type="con:RestRequestStep">
+      <con:restRequest name="GetSunInfo" id="69fa3fcc-b0de-4fa7-9c8d-dd8ac32bcf33" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://api.sunrisesunset.io</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://api.sunrisesunset.io/json</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="d92200a9-b472-445c-bc73-fb2f201ce0d5" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="date" value="today"/>
+          <con:entry key="lng" value="${GetWeatherInfo#Response#$['coord']['lon']}"/>
+          <con:entry key="timezone" value="EST"/>
+          <con:entry key="lat" value="${GetWeatherInfo#Response#$['coord']['lat']}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>lat</con:entry>
+          <con:entry>lng</con:entry>
+          <con:entry>timezone</con:entry>
+          <con:entry>date</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="e2f56d49-1fee-4eca-8ff9-d44226066985">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="2537a85e-1dd5-4588-b83e-5193ed8fdc19">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="delay" name="Delay" id="9b0b38a6-789b-4c1b-83b6-079b18a2a2d5">
+    <con:settings/>
+    <con:config>
+      <delay>300</delay>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="Data Source Loop" id="bbdd1581-ae15-4c7f-b549-dc4b7d57118f">
     <con:settings/>
     <con:config>
       <dataSourceStep>Data Source</dataSourceStep>
@@ -103,6 +152,11 @@
       <discardResults>false</discardResults>
     </con:config>
   </con:testStep>
+  <con:setupScript>//logic that sets the environment
+
+def proj = testRunner.testCase.project.workspace.getProjectByName("Sample Project")
+
+proj.setActiveEnvironment("Test Environment")</con:setupScript>
   <con:properties/>
   <con:reportParameters/>
   <con:environmentSpec>

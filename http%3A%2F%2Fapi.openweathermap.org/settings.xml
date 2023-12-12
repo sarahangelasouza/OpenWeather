@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <con:interface xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="con:RestService" id="43f38a4f-1457-4e58-a0c2-462465990ce6" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://api.openweathermap.org" type="rest">
-  <con:settings id="a2f4f501-87f0-4e3b-997e-977d0a025f62">
+  <con:settings id="c02dcb34-c005-477a-bc8d-8a648110fbed">
     <con:setting id="43f38a4f-1457-4e58-a0c2-462465990ce6fileName">http%3A%2F%2Fapi.openweathermap.org</con:setting>
   </con:settings>
   <con:definitionCache type="TEXT" rootPart=""/>
   <con:endpoints>
     <con:endpoint>http://api.openweathermap.org</con:endpoint>
+    <con:endpoint>http://api.openweathermap.org/data/2.5/weather?q=Ottawa&amp;appid=85c705dd76051cb3d8e5540b300279d4</con:endpoint>
+    <con:endpoint>http://localhost:8090/</con:endpoint>
+    <con:endpoint>http://localhost:8092/</con:endpoint>
   </con:endpoints>
   <con:environmentSpec>
     <con:entry environmentId="Default">
       <con:authProfile>oauth jwt profile</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="a7f860c7-1260-4fb1-a74c-bf58c3f835c1">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="e2f56d49-1fee-4eca-8ff9-d44226066985">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="2537a85e-1dd5-4588-b83e-5193ed8fdc19">
+      <con:authProfile>Inherit From Parent</con:authProfile>
     </con:entry>
   </con:environmentSpec>
 </con:interface>

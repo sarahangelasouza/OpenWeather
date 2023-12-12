@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="e5b6d7d7-50d1-45c9-b99b-7de699bdebad" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Cities" searchProperties="true" timeout="0">
+  <con:settings id="4de85487-c95d-4cf2-a133-bf470ebcbccd">
+    <con:setting id="e5b6d7d7-50d1-45c9-b99b-7de699bdebadfileName">Cities</con:setting>
+  </con:settings>
+  <con:testStep type="datasource" name="Top 50 Cities by Population" id="2c3d135c-8291-4e11-8e0b-872dbd610cc4" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep">
+      <con:dataSource type="Excel">
+        <con:configuration>
+          <file>C:/Users/sarah.souza/Documents/ReadyAPI Project Files/Excel/top50.xlsx</file>
+          <worksheet/>
+          <cell>A1</cell>
+          <ignoreEmpty>false</ignoreEmpty>
+          <evaluateFormulas>false</evaluateFormulas>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>City</con:property>
+      <con:property>Country</con:property>
+      <con:property>Abbr</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+      <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="2537a85e-1dd5-4588-b83e-5193ed8fdc19">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

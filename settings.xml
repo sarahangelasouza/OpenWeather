@@ -1,12 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project xmlns:con="http://eviware.com/soapui/config" id="1094a86c-9a5e-442b-a670-06f2ecabec00" created="3.42.2" activeEnvironment="Default environment" name="Open Weather" compositeProjectFormat="1.3" projectVersion="" updated="3.46.0" encryptionMode="Not encrypted" resourceRoot="">
+<con:soapui-project xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="1094a86c-9a5e-442b-a670-06f2ecabec00" created="3.42.2" activeEnvironment="Default environment" name="Open Weather" projectVersion="" updated="3.49.0" encryptionMode="Not encrypted" resourceRoot="" compositeProjectFormat="1.3">
   <con:settings>
     <con:setting id="1094a86c-9a5e-442b-a670-06f2ecabec00fileName">OpenWeather</con:setting>
+    <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Settings File Password" value=""/>
+  <con:entry key="Report Format(s)" value="XML"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="true"/>
+  <con:entry key="Export All" value="true"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Slack Channel(s)" value=""/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Test Suite Tags" value=""/>
+  <con:entry key="Select Report Type" value="JUnit-Style report for automation"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Test Suite" value="OpenWeathermap"/>
+  <con:entry key="Run in-process" value="false"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="true"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Test Case Tags" value=""/>
+  <con:entry key="Export JUnit Results with test properties" value="true"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Test Case" value="International Cities w/Sun Data Test"/>
+  <con:entry key="Slack Access Token" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="TestRunner Path" value="C:\Program Files\SmartBear\ReadyAPI-3.46.0\bin"/>
+  <con:entry key="Environment" value="No Environment"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value="C:\VortexJobs"/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting>
   </con:settings>
   <con:requirements/>
-  <con:properties/>
+  <con:properties>
+    <con:property>
+      <con:name>API_password</con:name>
+      <con:value>85c705dd76051cb3d8e5540b300279d4</con:value>
+    </con:property>
+  </con:properties>
   <con:wssContainer/>
-  <con:databaseConnectionContainer/>
+  <con:databaseConnectionContainer>
+    <con:databaseConnection>
+      <con:name>dfsffs</con:name>
+      <con:driver xsi:nil="true"/>
+      <con:connectionString xsi:nil="true"/>
+      <con:password/>
+      <con:connectionProperties/>
+    </con:databaseConnection>
+  </con:databaseConnectionContainer>
   <con:jmsConnectionContainer/>
   <con:oAuth2ProfileContainer>
     <con:oAuth2Profile>
@@ -50,6 +100,68 @@
 // pw.close()
 // fos.close()</con:script>
   </con:eventHandlers>
+  <con:environment id="a7f860c7-1260-4fb1-a74c-bf58c3f835c1" name="Local VS ENV" index="0">
+    <con:service type="REST" name="http://api.openweathermap.org">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="" areGlobalProxySettingsIgnored="false">http://localhost:8095</con:endpoint>
+    </con:service>
+    <con:property>
+      <con:name>API_password</con:name>
+      <con:value>85c705dd76051cb3d8e5540b300279d4</con:value>
+    </con:property>
+    <con:databaseConnectionContainer>
+      <con:databaseConnection>
+        <con:name>dfsffs</con:name>
+        <con:driver xsi:nil="true"/>
+        <con:connectionString xsi:nil="true"/>
+        <con:password/>
+        <con:connectionProperties/>
+      </con:databaseConnection>
+    </con:databaseConnectionContainer>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:environment id="e2f56d49-1fee-4eca-8ff9-d44226066985" name="VS ENV" index="2">
+    <con:service type="REST" name="http://api.openweathermap.org">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="" areGlobalProxySettingsIgnored="false">http://virtserver.se.smartbear.io:8095</con:endpoint>
+    </con:service>
+    <con:property>
+      <con:name>API_password</con:name>
+      <con:value/>
+    </con:property>
+    <con:databaseConnectionContainer>
+      <con:databaseConnection>
+        <con:name>dfsffs</con:name>
+        <con:driver xsi:nil="true"/>
+        <con:connectionString xsi:nil="true"/>
+        <con:password/>
+        <con:connectionProperties/>
+      </con:databaseConnection>
+    </con:databaseConnectionContainer>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:environment id="2537a85e-1dd5-4588-b83e-5193ed8fdc19" name="Example ENV" index="1">
+    <con:service type="REST" name="http://api.openweathermap.org">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="" areGlobalProxySettingsIgnored="false">http://localhost:8090</con:endpoint>
+    </con:service>
+    <con:property>
+      <con:name>API_password</con:name>
+      <con:value>85c705dd76051cb3d8e5540b300279d4</con:value>
+    </con:property>
+    <con:databaseConnectionContainer>
+      <con:databaseConnection>
+        <con:name>dfsffs</con:name>
+        <con:connectionProperties/>
+      </con:databaseConnection>
+    </con:databaseConnectionContainer>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:virtServer>
+    <con:name>SE VS</con:name>
+    <con:url>https://virtserver.se.smartbear.io:9090</con:url>
+  </con:virtServer>
+  <con:virtServer>
+    <con:name>Local VS</con:name>
+    <con:url>https://localhost:9090</con:url>
+  </con:virtServer>
   <con:authRepository>
     <con:oAuth20AuthEntry>
       <con:name>oauth jwt profile</con:name>
@@ -62,5 +174,21 @@
       <con:responseType>id_token</con:responseType>
     </con:oAuth20AuthEntry>
   </con:authRepository>
-  <con:tags/>
+  <con:environmentSpec>
+    <con:entry environmentId="a7f860c7-1260-4fb1-a74c-bf58c3f835c1">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="e2f56d49-1fee-4eca-8ff9-d44226066985">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="2537a85e-1dd5-4588-b83e-5193ed8fdc19">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+  <con:tags>
+    <con:tag>
+      <con:id>add33922-d833-48eb-9712-a23d180c9505</con:id>
+      <con:name>automation builds</con:name>
+    </con:tag>
+  </con:tags>
 </con:soapui-project>
