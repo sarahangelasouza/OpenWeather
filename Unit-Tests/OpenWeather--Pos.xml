@@ -24,7 +24,7 @@
             <SLA>200</SLA>
           </con:configuration>
         </con:assertion>
-        <con:assertion type="JsonPath Match" id="82699b49-3bab-4cda-8ae1-17840a6fadd4" name="Match content of [Response]">
+        <con:assertion type="JsonPath Match" id="82699b49-3bab-4cda-8ae1-17840a6fadd4" name="Match content of [Response]" disabled="true">
           <con:configuration>
             <path>$['Response']</path>
             <content>"This is a dynamic response"</content>

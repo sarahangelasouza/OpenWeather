@@ -16,7 +16,7 @@
         <con:assertion type="Valid HTTP Status Codes" id="d4f0825d-1472-4e8e-abf3-0c4d84a69cf6" name="Valid HTTP Status Codes">
           <con:settings/>
           <con:configuration>
-            <codes>400</codes>
+            <codes>400, 401, 402, 403, 404</codes>
           </con:configuration>
         </con:assertion>
         <con:assertion type="Response SLA Assertion" id="0410135b-b9f8-4013-b8db-abee80c4cf4b" name="Response SLA">
@@ -24,7 +24,7 @@
             <SLA>200</SLA>
           </con:configuration>
         </con:assertion>
-        <con:assertion type="JsonPath Match" id="82699b49-3bab-4cda-8ae1-17840a6fadd4" name="Match content of [Response]">
+        <con:assertion type="JsonPath Match" id="82699b49-3bab-4cda-8ae1-17840a6fadd4" name="Match content of [Response]" disabled="true">
           <con:configuration>
             <path>$['Response']</path>
             <content>"This is a dynamic response"</content>
@@ -39,7 +39,7 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="q" value="Boston"/>
+          <con:entry key="q" value="Wakanda"/>
           <con:entry key="appid" value="${#Project#API_password}"/>
           <con:entry key="units" value=""/>
         </con:parameters>

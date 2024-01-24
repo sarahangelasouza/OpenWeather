@@ -1,7 +1,7 @@
 http%3A%2F%2Fapi.openweathermap.org\Weather.xml
 https%3A%2F%2Fapi.sunrisesunset.io\Json.xml
 Security-Test-1.xml
-Security-Test-1-2.xml
+Security-Test-1-1.xml
 OpenWeathermap\International-Cities-Data-Test.xml
 OpenWeathermap\International-Cities-w%2FSun-Data-Test.xml
 OpenWeathermap\International-Cities-w%2FSun-Data-Test---ENV-1.xml

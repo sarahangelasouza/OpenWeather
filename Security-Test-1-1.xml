@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <con:securityTest xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="2e7719ff-6196-4ad4-b020-d5e5f41be43b" testCaseId="f69fd3d0-2416-4131-a83f-ffb17648ebe8" name="Security Test 1" failSecurityTestOnScanErrors="true">
   <con:settings id="f0fc0fc0-2955-4c8d-904c-c9fa1fc6a310">
-    <con:setting id="2e7719ff-6196-4ad4-b020-d5e5f41be43bfileName">Security-Test-1-2</con:setting>
+    <con:setting id="2e7719ff-6196-4ad4-b020-d5e5f41be43bfileName">Security-Test-1-1</con:setting>
   </con:settings>
   <con:testStepSecurityTest>
     <con:testStepId>dca80ab8-d841-487c-b1b1-5c94830d5d0f</con:testStepId>
